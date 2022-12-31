@@ -1,7 +1,7 @@
 export default function Home() {
   return (
     <>
-      <div>Check When u want to know how to use Font Style in nextJs</div>
+      <div className="text-red-200">Tailwind SetUp</div>
     </>
   );
 }
