@@ -16,7 +16,7 @@ module.exports = {
         },
       },
       animation: {
-        snowFalls: "snowFalls 4s linear",
+        snowFalls: "snowFalls 10s linear",
       },
     },
   },

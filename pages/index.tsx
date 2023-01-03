@@ -1,20 +1,32 @@
 import React, { useEffect, useState } from "react";
 
 export default function Home() {
-  const [leftWidth, setLeftWidth] = useState(0);
-  const leftPostition = () => {
-    setLeftWidth(Math.random() * window.screen.width);
-  };
+  let [leftWidth, setLeftWidth] = useState(0);
   useEffect(() => {
+    const leftPostition = () => {
+      setLeftWidth(window.screen.width);
+    };
     leftPostition();
   }, []);
-  console.log(leftWidth);
-  const makeSnow = () => {
-    const snowFlake = React.createElement("div", { className: "snow-div" });
+  const snowsFor = () => {
+    let snowArr = [];
+    for (let i = 0; i < 35; i++) {
+      snowArr.push(
+        <div className="" key={i}>
+          {React.createElement("div", {
+            className: "snow-div absolute ",
+            style: {
+              left: Math.random() * leftWidth - 10,
+            },
+          })}
+        </div>
+      );
+    }
+    return snowArr;
   };
   return (
     <div className="h-screen w-screen overflow-hidden bg-sky-200">
-      <div className="" />
+      <div className="overflow-hidden ">{snowsFor()}</div>
     </div>
   );
 }
