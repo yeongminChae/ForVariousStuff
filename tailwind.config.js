@@ -5,7 +5,20 @@ module.exports = {
     "./components/**/*.{js,jsx,ts,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      keyframes: {
+        snowFalls: {
+          from: {},
+          to: {
+            transform: "translateY(50vh)",
+            opacity: 0,
+          },
+        },
+      },
+      animation: {
+        snowFalls: "snowFalls 4s linear",
+      },
+    },
   },
   darkMode: "class",
   plugins: [],

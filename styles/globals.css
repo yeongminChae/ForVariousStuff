@@ -4,3 +4,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  .snow-div {
+    @apply m-3 h-3 w-3 animate-snowFalls rounded-full bg-white;
+  }
+}
