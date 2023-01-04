@@ -9,48 +9,28 @@ export default function Home() {
     leftPostition();
   }, []);
   const snowsFor = () => {
-    let snowArr = [];
+    let snowArr: any = [];
     for (let i = 0; i < 40; i++) {
-      // const snowFlake = React.createElement("div", {
-      //   className: "snow-div absolute",
-      //   style: {
-      //     left: Math.random() * leftWidth - 10,
-      //     animationDelay: `${Math.random() * 10}s`,
-      //     opacity: Math.random(),
-      //     animation: `snowFalls ${Math.random() * 20 + 10}s linear`,
-      //   },
-      // });
-      snowArr.push(
-        <div key={i}>
-          {React.createElement("div", {
-            className: "snow-div absolute",
-            style: {
-              left: Math.random() * leftWidth - 10,
-              animationDelay: `${Math.random() * 10}s`,
-              opacity: Math.random(),
-              animation: `snowFalls ${Math.random() * 20 + 10}s linear`,
-            },
-          })}
-          {/* {snowFlake} */}
+      const snowFlake = React.createElement("div", {
+        className: "snow-div absolute",
+        style: {
+          left: Math.random() * leftWidth - 10,
+          animationDelay: `${Math.random() * 10}s`,
+          opacity: Math.random(),
+          animation: `snowFalls ${Math.random() * 20 + 10}s linear infinite`,
+        },
+      });
+      const makeSnow = (
+        <div id={i + ""} key={i}>
+          {snowFlake}
         </div>
       );
+      snowArr.push(makeSnow);
     }
     return snowArr;
   };
-  const snowFunc = () => {
-    const removeDiv = (e: any) => {
-      // e.target.parentElement.parentElement.remove();
-      e.currentTarget.parentNode.remove();
-    };
-    setTimeout(() => {
-      removeDiv(snowsFor());
-      snowsFor();
-    }, Math.random() * 10 + (Math.random() * 20 + 10));
-    return snowsFor();
-  };
   return (
     <div className="h-screen w-screen overflow-hidden bg-sky-200">
-      {/* <div className="overflow-hidden ">{snowFunc()}</div> */}
       <div className="overflow-hidden ">{snowsFor()}</div>
     </div>
   );
