@@ -9,4 +9,7 @@
   .snow-div {
     @apply -top-3 h-3 w-3 animate-snowFalls rounded-full bg-white;
   }
+  .chat-div {
+    @apply flex h-12 w-full rounded-2xl border-2 border-indigo-200 p-3 text-center;
+  }
 }
