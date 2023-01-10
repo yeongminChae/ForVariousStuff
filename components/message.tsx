@@ -2,7 +2,7 @@ import { useState } from "react";
 import { cls } from "../libs/utils";
 
 interface IMessage {
-  message: string;
+  message: string | null;
   reverse?: boolean;
   profilePic?: string;
 }
@@ -19,7 +19,7 @@ const Message = ({ message, profilePic, reverse }: IMessage) => {
       <div
         className={cls(
           "flex h-12 w-4/5 items-center rounded-3xl border border-indigo-200 p-3 ",
-          reverse ? "bg-slate-200" : ""
+          reverse ? "bg-indigo-100" : ""
         )}
       >
         <p>{message}</p>
