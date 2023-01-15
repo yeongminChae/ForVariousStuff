@@ -5,8 +5,12 @@ import SnowsFor from "../components/snow";
 
 export default function Home() {
   const [inputText, setInputText] = useState("");
-  const messageSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
+  const messageSubmit = () => {
+    return (
+      <>
+        <Message message={inputText} />
+      </>
+    );
   };
   const messageChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     event.preventDefault();
@@ -75,7 +79,8 @@ export default function Home() {
       return (
         <>
           <button
-            type="submit"
+            type="button"
+            onClick={() => messageSubmit}
             className="ml-9 h-full w-12 text-sm text-indigo-400"
           >
             보내기
@@ -118,14 +123,14 @@ export default function Home() {
                     />
                   </svg>
                 </div>
-                <form onSubmit={messageSubmit}>
+                <div>
                   <input
                     type="text"
                     onChange={messageChange}
                     placeholder="Send Message..."
                     className="ml-2 flex w-[10.5rem] items-center justify-start text-sm text-indigo-400 placeholder:text-indigo-400 focus:outline-none"
                   />
-                </form>
+                </div>
                 {sendBtn()}
               </div>
             </div>
